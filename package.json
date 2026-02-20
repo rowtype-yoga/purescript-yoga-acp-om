@@ -1,0 +1,21 @@
+{
+  "name": "purescript-yoga-acp-om",
+  "type": "module",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "spago build",
+    "test": "spago test"
+  },
+  "devDependencies": {
+    "happy-dom": "^20.6.3",
+    "jsdom": "^28.1.0",
+    "purescript": "^0.15.15",
+    "spago": "^1.0.3",
+    "vitest": "^1.0.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.2.49",
+    "@libsql/client": "^0.17.0"
+  }
+}
