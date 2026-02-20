@@ -148,9 +148,9 @@ storeSpec = it "stores streamed messages in SQLite" do
         Array.length rows `shouldEqual` 2
         any (\(r :: MessageRow) -> r.role == "user") rows `shouldEqual` true
         any (\(r :: MessageRow) -> r.role == "assistant") rows `shouldEqual` true
-        SQLite.close conn
+        SQLite.close conn # liftEffect
       Left _ -> do
-        SQLite.close conn
+        SQLite.close conn # liftEffect
         fail "expected events but got error"
 
 agentSDKSpec :: Spec Unit
