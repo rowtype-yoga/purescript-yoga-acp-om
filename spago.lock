@@ -6,9 +6,6 @@
         "core": {
           "dependencies": [
             {
-              "aff": ">=7.0.0 <9.0.0"
-            },
-            {
               "arraybuffer-types": ">=3.0.2 <4.0.0"
             },
             {
@@ -21,22 +18,28 @@
               "either": ">=6.1.0 <7.0.0"
             },
             {
-              "exceptions": ">=6.1.0 <7.0.0"
-            },
-            {
-              "foldable-traversable": ">=6.0.0 <7.0.0"
-            },
-            {
               "foreign": ">=7.0.0 <8.0.0"
             },
             {
+              "http-methods": ">=6.0.0 <7.0.0"
+            },
+            {
               "js-fetch": ">=0.2.1 <0.3.0"
+            },
+            {
+              "js-promise": ">=1.0.0 <2.0.0"
             },
             {
               "js-promise-aff": ">=1.0.0 <2.0.0"
             },
             {
               "maybe": ">=6.0.0 <7.0.0"
+            },
+            {
+              "newtype": ">=5.0.0 <6.0.0"
+            },
+            {
+              "nullable": ">=6.0.0 <7.0.0"
             },
             {
               "prelude": ">=6.0.2 <7.0.0"
@@ -54,19 +57,13 @@
               "unsafe-coerce": ">=6.0.0 <7.0.0"
             },
             {
-              "variant": ">=8.0.0 <9.0.0"
-            },
-            {
-              "yoga-fetch-om": ">=0.5.0 <0.6.0"
-            },
-            {
               "yoga-json": ">=5.2.0 <6.0.0"
             },
             {
               "yoga-om": ">=1.3.0 <2.0.0"
             },
             {
-              "yoga-om-strom": ">=0.2.0 <0.4.0"
+              "yoga-om-strom": ">=0.2.0 <0.5.0"
             }
           ]
         },
@@ -77,6 +74,9 @@
             },
             {
               "spec-om": ">=0.1.0 <0.2.0"
+            },
+            {
+              "yoga-fetch-om": ">=0.5.0 <0.7.0"
             },
             {
               "yoga-sqlite": ">=0.1.0 <0.2.0"
@@ -677,30 +677,15 @@
       }
     },
     "extra_packages": {
-      "ref-lifted": {
-        "path": "../purescript-ref-lifted"
-      },
-      "spec-om": {
-        "path": "../purescript-spec-om"
-      },
-      "yoga-fetch-om": {
-        "path": "../purescript-yoga-fetch-om"
-      },
-      "yoga-http-api": {
-        "path": "../purescript-yoga-http-api"
-      },
+      "spec-om": "0.1.0",
+      "yoga-fetch-om": "0.6.1",
+      "yoga-http-api": "0.2.0",
       "yoga-json": "5.2.0",
-      "yoga-om": {
-        "path": "../purescript-yoga-om"
-      },
+      "yoga-om": "1.5.1",
       "yoga-om-layer": "1.0.6",
-      "yoga-om-strom": {
-        "path": "../purescript-yoga-om-strom"
-      },
+      "yoga-om-strom": "0.4.1",
       "yoga-options": "0.1.0",
-      "yoga-sqlite": {
-        "path": "../purescript-yoga-sqlite"
-      }
+      "yoga-sqlite": "0.1.0"
     }
   },
   "packages": {
@@ -1531,8 +1516,9 @@
       ]
     },
     "spec-om": {
-      "type": "local",
-      "path": "../purescript-spec-om",
+      "type": "registry",
+      "version": "0.1.0",
+      "integrity": "sha256-glX8g7X8o1gVNuxIgNK4NZtcpYDcDg6l3JAsRnDbBM0=",
       "dependencies": [
         "aff",
         "effect",
@@ -1710,16 +1696,6 @@
         "unsafe-coerce"
       ]
     },
-    "uuid": {
-      "type": "registry",
-      "version": "9.0.0",
-      "integrity": "sha256-aM/9+7xlHs5UDdtRfoEQosPpYOruwowa3sezIodJ3vk=",
-      "dependencies": [
-        "effect",
-        "maybe",
-        "prelude"
-      ]
-    },
     "variant": {
       "type": "registry",
       "version": "8.0.0",
@@ -1841,8 +1817,9 @@
       ]
     },
     "yoga-fetch-om": {
-      "type": "local",
-      "path": "../purescript-yoga-fetch-om",
+      "type": "registry",
+      "version": "0.6.1",
+      "integrity": "sha256-IMDEEafT0d5Kk4r9/tUTwHo59V1ZG7MU0bMV2vHdbwI=",
       "dependencies": [
         "aff",
         "arraybuffer-types",
@@ -1869,8 +1846,9 @@
       ]
     },
     "yoga-http-api": {
-      "type": "local",
-      "path": "../purescript-yoga-http-api",
+      "type": "registry",
+      "version": "0.2.0",
+      "integrity": "sha256-zcQusL24+05UYAb2DuSBgL6nHeivVUOKOAWl5ZZWK/w=",
       "dependencies": [
         "aff",
         "arrays",
@@ -1933,8 +1911,9 @@
       ]
     },
     "yoga-om": {
-      "type": "local",
-      "path": "../purescript-yoga-om",
+      "type": "registry",
+      "version": "1.5.1",
+      "integrity": "sha256-Fx9Or+0JO7uOYcjbKX0LeY+9fuIxYilZTMd4Q1eje0k=",
       "dependencies": [
         "aff",
         "aff-retry",
@@ -1964,8 +1943,9 @@
       ]
     },
     "yoga-om-strom": {
-      "type": "local",
-      "path": "../purescript-yoga-om-strom",
+      "type": "registry",
+      "version": "0.4.1",
+      "integrity": "sha256-IIfjEQY7g6/4BjPkCj2yvhXPL8mmAfiJykZy3A+iGnI=",
       "dependencies": [
         "aff",
         "arrays",
@@ -2004,38 +1984,53 @@
         "untagged-union"
       ]
     },
-    "yoga-sqlite": {
-      "type": "local",
-      "path": "../purescript-yoga-sqlite",
+    "yoga-sql-types": {
+      "type": "registry",
+      "version": "0.1.0",
+      "integrity": "sha256-vxOgnj3HK8F5gRHCNkIPNirORQtCBEKozG+CnrHtB84=",
       "dependencies": [
-        "aff",
         "arrays",
-        "datetime",
-        "effect",
+        "bifunctors",
         "either",
-        "enums",
-        "exceptions",
         "foldable-traversable",
         "foreign",
-        "integers",
-        "js-bigints",
-        "js-date",
-        "js-promise",
-        "js-promise-aff",
+        "foreign-object",
+        "heterogeneous",
+        "identity",
         "lists",
         "maybe",
         "newtype",
         "nullable",
-        "numbers",
         "ordered-collections",
+        "partial",
         "prelude",
         "record",
-        "strings",
+        "safe-coerce",
         "transformers",
+        "tuples",
         "typelevel-prelude",
         "unsafe-coerce",
-        "uuid",
         "yoga-json"
+      ]
+    },
+    "yoga-sqlite": {
+      "type": "registry",
+      "version": "0.1.0",
+      "integrity": "sha256-ayOYqZUmZM2ZszA8uQ38TN30WNRWSu7LWS4HX8cPbkc=",
+      "dependencies": [
+        "aff",
+        "arrays",
+        "effect",
+        "either",
+        "foldable-traversable",
+        "js-promise",
+        "js-promise-aff",
+        "maybe",
+        "newtype",
+        "nullable",
+        "prelude",
+        "unsafe-coerce",
+        "yoga-sql-types"
       ]
     },
     "yoga-tree": {
