@@ -24,6 +24,12 @@ workspace:
 
 package:
   name: yoga-acp-om
+  publish:
+    version: 0.1.0
+    license: MIT
+    location:
+      githubOwner: rowtype-yoga
+      githubRepo: purescript-yoga-acp-om
   dependencies:
     - aff: ">=7.0.0 <9.0.0"
     - arrays: ">=7.3.0 <8.0.0"
