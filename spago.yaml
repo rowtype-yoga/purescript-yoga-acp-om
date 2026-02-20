@@ -2,15 +2,23 @@ workspace:
   packageSet:
     registry: 73.0.0
   extraPackages:
-    yoga-om: "1.5.1"
-    yoga-om-strom: "0.4.1"
-    yoga-fetch-om: "0.6.1"
+    yoga-om:
+      path: ../purescript-yoga-om
+    yoga-om-strom:
+      path: ../purescript-yoga-om-strom
+    yoga-fetch-om:
+      path: ../purescript-yoga-fetch-om
     yoga-json: "5.2.0"
-    yoga-http-api: "0.2.0"
+    yoga-http-api:
+      path: ../purescript-yoga-http-api
     yoga-options: "0.1.0"
     yoga-om-layer: "1.0.6"
-    yoga-sqlite: "0.1.0"
-    spec-om: "0.1.0"
+    ref-lifted:
+      path: ../purescript-ref-lifted
+    spec-om:
+      path: ../purescript-spec-om
+    yoga-sqlite:
+      path: ../purescript-yoga-sqlite
 
 package:
   name: yoga-acp-om
