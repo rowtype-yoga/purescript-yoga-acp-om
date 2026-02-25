@@ -1,18 +1,23 @@
 module Yoga.ACP.ClaudeAgent
   ( SDKMessage(..)
+  , ContentBlock(..)
+  , APIMessage
   , ResultMsg
   , SystemMsg
   , QueryOptions
   , query
+  , messageText
   ) where
 
 import Prelude
 
 import Control.Monad.Except (runExcept)
+import Data.Array as Array
 import Data.Either (Either(..))
 import Data.Maybe (Maybe(..))
 import Data.Nullable (Nullable)
 import Data.Nullable as Nullable
+import Data.String as String
 import Data.Tuple.Nested (type (/\), (/\))
 import Effect.Class (liftEffect)
 import Effect.Uncurried (EffectFn1, runEffectFn1)
@@ -57,8 +62,38 @@ type QueryOptions =
   , maxBudgetUsd :: Number
   , continue :: Boolean
   , allowDangerouslySkipPermissions :: Boolean
+  , pathToClaudeCodeExecutable :: String
   , env :: Foreign
   )
+
+--------------------------------------------------------------------------------
+-- Content blocks (Anthropic API types)
+--------------------------------------------------------------------------------
+
+-- | A content block from the Anthropic API. Tagged by the "type" field.
+data ContentBlock
+  = TextBlock { text :: String }
+  | ToolUseBlock { id :: String, name :: String }
+  | ToolResultBlock { tool_use_id :: String }
+  | UnknownBlock String
+
+instance ReadForeign ContentBlock where
+  readImpl f = do
+    blockType <- readProp "type" f >>= readString
+    case blockType of
+      "text" -> TextBlock <$> readImpl f
+      "tool_use" -> ToolUseBlock <$> readImpl f
+      "tool_result" -> ToolResultBlock <$> readImpl f
+      t -> pure $ UnknownBlock t
+
+--------------------------------------------------------------------------------
+-- API message type
+--------------------------------------------------------------------------------
+
+type APIMessage =
+  { role :: String
+  , content :: Array ContentBlock
+  }
 
 --------------------------------------------------------------------------------
 -- Message types
@@ -82,8 +117,8 @@ type SystemMsg =
   }
 
 data SDKMessage
-  = AssistantMessage { uuid :: String, session_id :: String, message :: Foreign }
-  | UserMessage { uuid :: String, session_id :: String, message :: Foreign }
+  = AssistantMessage { uuid :: String, session_id :: String, message :: APIMessage }
+  | UserMessage { uuid :: String, session_id :: String, message :: APIMessage }
   | ResultMessage ResultMsg
   | SystemMessage SystemMsg
   | StreamEvent { uuid :: String, session_id :: String, event :: Foreign }
@@ -99,6 +134,16 @@ instance ReadForeign SDKMessage where
       "system" -> SystemMessage <$> readImpl f
       "stream_event" -> StreamEvent <$> readImpl f
       _ -> pure $ UnknownMessage f
+
+-- | Extract plain text from an API message's content blocks.
+messageText :: APIMessage -> String
+messageText msg = String.joinWith "\n" $ Array.mapMaybe blockText msg.content
+  where
+  blockText = case _ of
+    TextBlock r -> Just r.text
+    ToolUseBlock r -> Just ("[tool: " <> r.name <> "]")
+    ToolResultBlock _ -> Just "[tool_result]"
+    UnknownBlock t -> Just ("[" <> t <> "]")
 
 --------------------------------------------------------------------------------
 -- Query
