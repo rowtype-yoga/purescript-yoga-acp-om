@@ -1,29 +1,20 @@
 workspace:
   packageSet:
-    registry: 73.0.0
+    registry: 73.3.0
   extraPackages:
-    yoga-om:
-      path: ../purescript-yoga-om
-    yoga-om-strom:
-      path: ../purescript-yoga-om-strom
-    yoga-fetch-om:
-      path: ../purescript-yoga-fetch-om
+    yoga-om: "1.5.2"
+    yoga-om-strom: "0.4.2"
     yoga-json: "5.2.0"
-    yoga-http-api:
-      path: ../purescript-yoga-http-api
+    yoga-http-api: "0.2.1"
     yoga-options: "0.1.0"
-    yoga-om-layer: "1.0.6"
-    ref-lifted:
-      path: ../purescript-ref-lifted
-    spec-om:
-      path: ../purescript-spec-om
-    yoga-sqlite:
-      path: ../purescript-yoga-sqlite
+    yoga-om-layer: "1.2.2"
+    ref-lifted: "0.0.2"
+    yoga-sqlite: "0.1.1"
 
 package:
   name: yoga-acp-om
   publish:
-    version: 0.1.0
+    version: 0.1.1
     license: MIT
     location:
       githubOwner: rowtype-yoga
@@ -49,10 +40,3 @@ package:
     - yoga-om: ">=1.3.0 <2.0.0"
     - yoga-om-strom: ">=0.2.0 <0.5.0"
     - yoga-json: ">=5.2.0 <6.0.0"
-  test:
-    main: Test.Main
-    dependencies:
-      - spec: ">=8.1.1 <9.0.0"
-      - spec-om: ">=0.1.0 <0.2.0"
-      - yoga-sqlite: ">=0.1.0 <0.2.0"
-      - yoga-fetch-om: ">=0.5.0 <0.7.0"

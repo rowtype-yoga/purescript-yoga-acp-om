@@ -68,26 +68,13 @@
           ]
         },
         "test": {
-          "dependencies": [
-            {
-              "spec": ">=8.1.1 <9.0.0"
-            },
-            {
-              "spec-om": ">=0.1.0 <0.2.0"
-            },
-            {
-              "yoga-fetch-om": ">=0.5.0 <0.7.0"
-            },
-            {
-              "yoga-sqlite": ">=0.1.0 <0.2.0"
-            }
-          ]
+          "dependencies": []
         }
       }
     },
     "package_set": {
       "address": {
-        "registry": "73.0.0"
+        "registry": "73.3.0"
       },
       "compiler": ">=0.15.15 <0.16.0",
       "content": {
@@ -426,7 +413,7 @@
         "options": "7.0.0",
         "optparse": "5.0.1",
         "ordered-collections": "3.2.0",
-        "ordered-set": "0.4.0",
+        "ordered-set": "0.5.0",
         "orders": "6.0.0",
         "org-doc": "0.1.0",
         "owoify": "1.2.0",
@@ -517,6 +504,7 @@
         "selective-functors": "1.0.1",
         "semirings": "7.0.0",
         "shuffle": "2.0.0",
+        "sigil": "0.3.0",
         "signal": "13.0.0",
         "simple-emitter": "3.0.1",
         "simple-i18n": "2.0.1",
@@ -531,7 +519,7 @@
         "sparse-matrices": "2.0.1",
         "sparse-polynomials": "3.0.1",
         "spec": "8.1.1",
-        "spec-discovery": "8.4.0",
+        "spec-discovery": "8.4.1",
         "spec-mocha": "5.1.1",
         "spec-node": "0.0.3",
         "spec-quickcheck": "5.0.2",
@@ -677,15 +665,14 @@
       }
     },
     "extra_packages": {
-      "spec-om": "0.1.0",
-      "yoga-fetch-om": "0.6.1",
-      "yoga-http-api": "0.2.0",
+      "ref-lifted": "0.0.2",
+      "yoga-http-api": "0.2.1",
       "yoga-json": "5.2.0",
-      "yoga-om": "1.5.1",
-      "yoga-om-layer": "1.0.6",
-      "yoga-om-strom": "0.4.1",
+      "yoga-om": "1.5.2",
+      "yoga-om-layer": "1.2.2",
+      "yoga-om-strom": "0.4.2",
       "yoga-options": "0.1.0",
-      "yoga-sqlite": "0.1.0"
+      "yoga-sqlite": "0.1.1"
     }
   },
   "packages": {
@@ -1232,20 +1219,6 @@
         "unfoldable"
       ]
     },
-    "literals": {
-      "type": "registry",
-      "version": "1.0.2",
-      "integrity": "sha256-ZkGRFD6gb8etYvyMYpX1Z7lx1Tql7R1VGnD1Dzinup8=",
-      "dependencies": [
-        "integers",
-        "maybe",
-        "numbers",
-        "partial",
-        "prelude",
-        "typelevel-prelude",
-        "unsafe-coerce"
-      ]
-    },
     "maybe": {
       "type": "registry",
       "version": "6.0.0",
@@ -1515,23 +1488,6 @@
         "tuples"
       ]
     },
-    "spec-om": {
-      "type": "registry",
-      "version": "0.1.0",
-      "integrity": "sha256-glX8g7X8o1gVNuxIgNK4NZtcpYDcDg6l3JAsRnDbBM0=",
-      "dependencies": [
-        "aff",
-        "effect",
-        "exceptions",
-        "foldable-traversable",
-        "identity",
-        "prelude",
-        "spec",
-        "web-dom",
-        "web-html",
-        "yoga-om"
-      ]
-    },
     "st": {
       "type": "registry",
       "version": "6.2.0",
@@ -1646,22 +1602,6 @@
         "tuples"
       ]
     },
-    "undefined-is-not-a-problem": {
-      "type": "registry",
-      "version": "1.1.0",
-      "integrity": "sha256-0YkVzpcKi40T43go7/f8uLVIYgir6lGzOytL6LPfiog=",
-      "dependencies": [
-        "effect",
-        "either",
-        "foreign",
-        "maybe",
-        "newtype",
-        "prelude",
-        "tuples",
-        "type-equality",
-        "unsafe-coerce"
-      ]
-    },
     "unfoldable": {
       "type": "registry",
       "version": "6.0.0",
@@ -1680,22 +1620,6 @@
       "integrity": "sha256-0L1QsaY20OILjfU5TV72d3U/tSjhmL9hJ32WMp857Lk=",
       "dependencies": []
     },
-    "untagged-union": {
-      "type": "registry",
-      "version": "1.0.0",
-      "integrity": "sha256-MQvpb13TZEBoi9n/AoQ7ugniSQqbN6XQmAjii9pqJRk=",
-      "dependencies": [
-        "either",
-        "foreign",
-        "foreign-object",
-        "literals",
-        "maybe",
-        "newtype",
-        "prelude",
-        "tuples",
-        "unsafe-coerce"
-      ]
-    },
     "variant": {
       "type": "registry",
       "version": "8.0.0",
@@ -1710,21 +1634,6 @@
         "prelude",
         "type-equality",
         "unsafe-coerce"
-      ]
-    },
-    "web-dom": {
-      "type": "registry",
-      "version": "6.0.0",
-      "integrity": "sha256-rVeqkxChkjqisDvOujy9BMEgGqJkwX3t6g21bXfiG5o=",
-      "dependencies": [
-        "effect",
-        "enums",
-        "maybe",
-        "newtype",
-        "nullable",
-        "prelude",
-        "unsafe-coerce",
-        "web-events"
       ]
     },
     "web-events": {
@@ -1766,41 +1675,6 @@
         "web-events"
       ]
     },
-    "web-html": {
-      "type": "registry",
-      "version": "4.1.1",
-      "integrity": "sha256-yOuZJGUxFrivHKpo/jKuKzFZaq6PPPE64ftSysXFssk=",
-      "dependencies": [
-        "effect",
-        "enums",
-        "foreign",
-        "functions",
-        "js-date",
-        "maybe",
-        "media-types",
-        "newtype",
-        "nullable",
-        "prelude",
-        "unsafe-coerce",
-        "web-dom",
-        "web-events",
-        "web-file",
-        "web-storage"
-      ]
-    },
-    "web-storage": {
-      "type": "registry",
-      "version": "5.0.0",
-      "integrity": "sha256-YJfos55oeKtBStNfoWfeflSy8j+4IDym5eaZtIY7YM4=",
-      "dependencies": [
-        "effect",
-        "maybe",
-        "nullable",
-        "prelude",
-        "unsafe-coerce",
-        "web-events"
-      ]
-    },
     "web-streams": {
       "type": "registry",
       "version": "4.0.0",
@@ -1814,61 +1688,6 @@
         "nullable",
         "prelude",
         "tuples"
-      ]
-    },
-    "yoga-fetch-om": {
-      "type": "registry",
-      "version": "0.6.1",
-      "integrity": "sha256-IMDEEafT0d5Kk4r9/tUTwHo59V1ZG7MU0bMV2vHdbwI=",
-      "dependencies": [
-        "aff",
-        "arraybuffer-types",
-        "arrays",
-        "effect",
-        "either",
-        "exceptions",
-        "http-methods",
-        "js-fetch",
-        "js-promise-aff",
-        "maybe",
-        "prelude",
-        "record",
-        "strings",
-        "transformers",
-        "tuples",
-        "typelevel-prelude",
-        "unsafe-coerce",
-        "variant",
-        "yoga-http-api",
-        "yoga-json",
-        "yoga-om",
-        "yoga-om-strom"
-      ]
-    },
-    "yoga-http-api": {
-      "type": "registry",
-      "version": "0.2.0",
-      "integrity": "sha256-zcQusL24+05UYAb2DuSBgL6nHeivVUOKOAWl5ZZWK/w=",
-      "dependencies": [
-        "aff",
-        "arrays",
-        "either",
-        "foldable-traversable",
-        "foreign",
-        "foreign-object",
-        "identity",
-        "integers",
-        "maybe",
-        "newtype",
-        "prelude",
-        "record",
-        "strings",
-        "tuples",
-        "undefined-is-not-a-problem",
-        "unsafe-coerce",
-        "variant",
-        "yoga-json",
-        "yoga-options"
       ]
     },
     "yoga-json": {
@@ -1912,8 +1731,8 @@
     },
     "yoga-om": {
       "type": "registry",
-      "version": "1.5.1",
-      "integrity": "sha256-Fx9Or+0JO7uOYcjbKX0LeY+9fuIxYilZTMd4Q1eje0k=",
+      "version": "1.5.2",
+      "integrity": "sha256-2ys14BF6NPgzFDFUIFk0EDxmqkA8+yghIA9TXHlOmE0=",
       "dependencies": [
         "aff",
         "aff-retry",
@@ -1944,8 +1763,8 @@
     },
     "yoga-om-strom": {
       "type": "registry",
-      "version": "0.4.1",
-      "integrity": "sha256-IIfjEQY7g6/4BjPkCj2yvhXPL8mmAfiJykZy3A+iGnI=",
+      "version": "0.4.2",
+      "integrity": "sha256-BmKYog5spZOhW1foqbRVJn85UHIGsoDYi2iAbo6XeXw=",
       "dependencies": [
         "aff",
         "arrays",
@@ -1971,66 +1790,6 @@
         "tuples",
         "variant",
         "yoga-om"
-      ]
-    },
-    "yoga-options": {
-      "type": "registry",
-      "version": "0.1.0",
-      "integrity": "sha256-8u9uwmxqwNX7bmA7U+hQ60ZnZxLzvlyYTVNXSIWeXv4=",
-      "dependencies": [
-        "identity",
-        "literals",
-        "unsafe-coerce",
-        "untagged-union"
-      ]
-    },
-    "yoga-sql-types": {
-      "type": "registry",
-      "version": "0.1.0",
-      "integrity": "sha256-vxOgnj3HK8F5gRHCNkIPNirORQtCBEKozG+CnrHtB84=",
-      "dependencies": [
-        "arrays",
-        "bifunctors",
-        "either",
-        "foldable-traversable",
-        "foreign",
-        "foreign-object",
-        "heterogeneous",
-        "identity",
-        "lists",
-        "maybe",
-        "newtype",
-        "nullable",
-        "ordered-collections",
-        "partial",
-        "prelude",
-        "record",
-        "safe-coerce",
-        "transformers",
-        "tuples",
-        "typelevel-prelude",
-        "unsafe-coerce",
-        "yoga-json"
-      ]
-    },
-    "yoga-sqlite": {
-      "type": "registry",
-      "version": "0.1.0",
-      "integrity": "sha256-ayOYqZUmZM2ZszA8uQ38TN30WNRWSu7LWS4HX8cPbkc=",
-      "dependencies": [
-        "aff",
-        "arrays",
-        "effect",
-        "either",
-        "foldable-traversable",
-        "js-promise",
-        "js-promise-aff",
-        "maybe",
-        "newtype",
-        "nullable",
-        "prelude",
-        "unsafe-coerce",
-        "yoga-sql-types"
       ]
     },
     "yoga-tree": {
